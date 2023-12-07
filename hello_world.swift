@@ -1,8 +1,12 @@
+/*
+    This example shows how to print to the console, create a function,
+    generate a for-loop, accept user input, and type-cast variables
+*/
 
 print("Hello, World!\n")
 
 print("Creating a function...")
-func addUserInput() -> Int{
+func addUserInput() -> Int {
     var sum: Int = 0
 
     for _ in 1...2 {
@@ -20,3 +24,4 @@ func addUserInput() -> Int{
 
 var mySum = addUserInput()
 print("Sum of user Input: \(mySum)")
+
