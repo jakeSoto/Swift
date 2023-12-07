@@ -12,16 +12,16 @@ func addUserInput() -> Int {
     for _ in 1...2 {
         print("Enter an integer to add: ")
 
+        // Attempting to convert the user input to an Integer and store in temp
         if let temp = Int(readLine()!) {
             sum += temp
-        }
-        else {
+        } else {
             print("The input is not a valid integer")
         }
     }
     return sum
 }
 
-var mySum = addUserInput()
+var mySum: Int = addUserInput()
 print("Sum of user Input: \(mySum)")
 
