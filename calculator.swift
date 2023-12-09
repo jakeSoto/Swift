@@ -2,7 +2,7 @@
 struct Stack<T> {
     private var elements: [T] = []  // Array that stores elements in stack
 
-    /* Boolean variable - returns true if stack is empty, false otherwise */
+    /* Returns true if stack is empty, false otherwise */
     var isEmpty: Bool {
         return elements.isEmpty
     }
@@ -44,39 +44,47 @@ struct Stack<T> {
 
 class Calculator<T> {
     private var stack: Stack<T>
+    let validChars: [Character] = [" ", ".", "+", "-", "*", "/", "^"]
 
     init() {
         stack = Stack<T>()
     }
 
+    /* Ensure user input is a valid arithmetic operation */
+    func checkInput(_ input: String) -> Bool {
+        for char in input {
+            if (char.wholeNumberValue != nil || validChars.contains(char)) {
+                // Char is a whole number or valid character
+                continue
+            } else {
+                // Char is NEITHER a whole number or valid character
+                print("Invalid character: \(char)")
+                return false
+            }
+        }
+        return true
+    }
 
 }
 
 
+/* Main Program */
 func main() {
-    /*
-    print("Testing the Stack...")
-    var myStack = Stack<Int>()
-    myStack.push(1)
-    myStack.push(2)
-    myStack.push(3)
+    let myCalc = Calculator<Double>()
+    print("Welcome to the TI-327 Calculator...")
+    print("Enter an arithmetic expression or 'exit' to quit: ")
+    var inString: String = ""
 
-    if let temp = myStack.peek() {
-        print("Top element: \(temp)")
-    }
+    repeat {
+        inString = readLine()!
 
-    myStack.clear()
-    if let temp = myStack.pop() {
-        print("Top element: \(temp)")
-    }
-
-    print("Empty Stack? \(myStack.isEmpty)")
-    print("Working")
-    */
-
-    print("Testing the Calculator....")
-    var myCalc = Calculator<Double>()
-    print("Created")
+        if (!myCalc.checkInput(inString)) {
+            print("ERROR: Invalid input")
+        } else {
+            // Perform arithmetic
+            print("Valid Input")
+        }
+    } while (inString != "exit")
 }
 
 main()
