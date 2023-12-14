@@ -14,8 +14,8 @@ class TodoList{
 
     func completeTask(index: Int){
         if(index<toDoItems.count && index>=0){
-            toDoItems.remove(at: index)
-            print("completed task \(toDoItems[index].task)")
+            let completedTask = toDoItems.remove(at: index)
+            print("completed task \(completedTask.task)")
         }
         else{
             print("invalid index")

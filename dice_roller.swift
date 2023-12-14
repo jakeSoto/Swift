@@ -14,7 +14,7 @@ class Dice {
 
     /* If the index exists as a key in the dictionary, return the corresponding value,
     Else return empty string */
-    private func getFace(index: Int) -> String {
+    private func getFace(_ index: Int) -> String {
         let temp: String? = self.sides[index]
         return temp ?? ""
     }
@@ -24,7 +24,7 @@ class Dice {
     and the corresponding String representation of the dice face */
     func rollDice() -> (Int, String) {
         let num = Int.random(in: 1...sides.count)
-        return (num, self.getFace(index:num))
+        return (num, self.getFace(num))
     }
 
 }

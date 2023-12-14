@@ -166,12 +166,16 @@ func main() {
         inString = readLine()!
 
         if (!myCalc.checkInput(inString)) {
-            print("ERROR: Invalid input")
+            if(inString != "exit"){
+                print("ERROR: Invalid input")
+            }
         } 
         else {
             // Perform arithmetic
             print("Valid Input: Calculating...")
+            print("Answer: ", terminator: "")
             myCalc.performOperation()
+            print()
         }
     } while (inString != "exit")
 }
